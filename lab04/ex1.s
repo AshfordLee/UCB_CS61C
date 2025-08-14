@@ -51,6 +51,8 @@ pow:
     # BEGIN PROLOGUE
     # FIXME: Need to save the callee saved register(s)
     # END PROLOGUE
+    addi sp ,sp ,-4
+    sw s0, 0(sp)
     li s0, 1
 pow_loop:
     beq a1, zero, pow_end
@@ -62,6 +64,8 @@ pow_end:
     # BEGIN EPILOGUE
     # FIXME: Need to restore the callee saved register(s)
     # END EPILOGUE
+    lw s0 0(sp)
+    addi sp ,sp ,4
     jr ra
 
 # Increments the elements of an array in-place.

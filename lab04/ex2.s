@@ -32,7 +32,10 @@ main:
 #     where ^ is the exponent operator, not XOR
 ex2:
     # Note: Add code BELOW without altering existing lines.
-    sw s0 0(sp)
+    
+    addi sp, sp, -8
+    sw s0, 0(sp)
+    sw ra, 4(sp)
 
     # return 1 if a1 == 0
     beq a1 x0 ex2_zero_case
@@ -50,8 +53,10 @@ ex2:
 
 ex2_zero_case:
     li a0 1
+    j ex2_end
 
 ex2_end:
-    lw s0 0(sp)
-
+    lw s0, 0(sp)
+    lw ra, 4(sp)
+    addi sp, sp, 8
     jr ra

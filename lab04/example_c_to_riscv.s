@@ -34,20 +34,20 @@ main:
     la s1, source
     la s2, dest
 loop:
-    slli s3, t0, 2
-    add t1, s1, s3
-    lw t2, 0(t1)
-    beq t2, x0, exit
-    add a0, x0, t2 # 1
+    slli s3, t0, 2 # offset of source 
+    add t1, s1, s3 # source[k]
+    lw t2, 0(t1) # R[t2]=source[k]
+    beq t2, x0, exit # if source[k]==0 then jump to exit
+    add a0, x0, t2 # 1 # R[a0]=source[k]
     addi sp, sp, -4
     sw t0, 0(sp)
     jal fun
     lw t0, 0(sp)
     addi sp, sp, 4
-    add t3, s2, s3 # 4
-    sw a0, 0(t3) # 5
-    add s0, s0, a0 # 6
-    addi t0, t0, 1
+    add t3, s2, s3 # 4 # R[t3]=dest[k]
+    sw a0, 0(t3) # 5 #R[a0]=dest[k]
+    add s0, s0, a0 # 6 # sum+=dest[k]
+    addi t0, t0, 1 # k++
     jal x0, loop
 exit:
     addi a0, x0, 1 # argument to ecall, 1 = execute print integer
