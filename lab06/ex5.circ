@@ -78,6 +78,7 @@
     <a name="circuit" val="num_checker"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(120,850)" name="Clock"/>
     <comp lib="0" loc="(170,300)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="label" val="clk"/>
@@ -243,10 +244,11 @@
       <a name="label" val="bits_ten"/>
       <a name="width" val="4"/>
     </comp>
-    <comp lib="0" loc="(540,300)" name="Constant">
+    <comp lib="0" loc="(40,820)" name="Constant"/>
+    <comp lib="0" loc="(540,300)" name="Constant"/>
+    <comp lib="0" loc="(540,370)" name="Constant">
       <a name="value" val="0x0"/>
     </comp>
-    <comp lib="0" loc="(540,370)" name="Constant"/>
     <comp lib="0" loc="(540,450)" name="Constant">
       <a name="value" val="0x0"/>
       <a name="width" val="32"/>
@@ -286,15 +288,15 @@
     </comp>
     <comp lib="0" loc="(550,500)" name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="label" val="bits_15"/>
-      <a name="width" val="28"/>
+      <a name="label" val="num"/>
+      <a name="width" val="32"/>
     </comp>
     <comp lib="0" loc="(550,540)" name="Constant">
-      <a name="value" val="0x0"/>
-      <a name="width" val="28"/>
+      <a name="value" val="0xf"/>
+      <a name="width" val="32"/>
     </comp>
     <comp lib="0" loc="(550,660)" name="Constant">
-      <a name="value" val="0x7"/>
+      <a name="value" val="0x5"/>
       <a name="width" val="3"/>
     </comp>
     <comp lib="0" loc="(550,740)" name="Constant">
@@ -347,6 +349,9 @@
     <comp lib="1" loc="(720,680)" name="AND Gate"/>
     <comp lib="1" loc="(720,840)" name="AND Gate"/>
     <comp lib="1" loc="(820,760)" name="OR Gate"/>
+    <comp lib="3" loc="(110,810)" name="Adder">
+      <a name="width" val="1"/>
+    </comp>
     <comp lib="3" loc="(620,280)" name="Comparator">
       <a name="width" val="1"/>
     </comp>
@@ -357,7 +362,7 @@
       <a name="width" val="32"/>
     </comp>
     <comp lib="3" loc="(620,510)" name="Comparator">
-      <a name="width" val="28"/>
+      <a name="width" val="32"/>
     </comp>
     <comp lib="3" loc="(620,640)" name="Comparator">
       <a name="width" val="3"/>
@@ -371,6 +376,13 @@
     <comp lib="3" loc="(620,880)" name="Comparator">
       <a name="width" val="28"/>
     </comp>
+    <comp lib="4" loc="(200,780)" name="Register">
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="label" val="num_cycles"/>
+      <a name="width" val="1"/>
+    </comp>
+    <wire from="(110,810)" to="(200,810)"/>
+    <wire from="(120,850)" to="(200,850)"/>
     <wire from="(170,300)" to="(290,300)"/>
     <wire from="(170,400)" to="(210,400)"/>
     <wire from="(170,500)" to="(210,500)"/>
@@ -382,6 +394,12 @@
     <wire from="(230,500)" to="(290,500)"/>
     <wire from="(230,560)" to="(290,560)"/>
     <wire from="(230,610)" to="(290,610)"/>
+    <wire from="(260,810)" to="(270,810)"/>
+    <wire from="(270,730)" to="(270,810)"/>
+    <wire from="(30,730)" to="(270,730)"/>
+    <wire from="(30,730)" to="(30,800)"/>
+    <wire from="(30,800)" to="(70,800)"/>
+    <wire from="(40,820)" to="(70,820)"/>
     <wire from="(540,300)" to="(560,300)"/>
     <wire from="(540,370)" to="(560,370)"/>
     <wire from="(540,450)" to="(560,450)"/>
@@ -417,11 +435,13 @@
     <wire from="(620,280)" to="(670,280)"/>
     <wire from="(620,350)" to="(670,350)"/>
     <wire from="(620,420)" to="(670,420)"/>
-    <wire from="(620,520)" to="(670,520)"/>
+    <wire from="(620,500)" to="(650,500)"/>
     <wire from="(620,640)" to="(650,640)"/>
     <wire from="(620,720)" to="(650,720)"/>
     <wire from="(620,800)" to="(650,800)"/>
     <wire from="(620,880)" to="(650,880)"/>
+    <wire from="(650,500)" to="(650,520)"/>
+    <wire from="(650,520)" to="(670,520)"/>
     <wire from="(650,640)" to="(650,660)"/>
     <wire from="(650,660)" to="(670,660)"/>
     <wire from="(650,700)" to="(650,720)"/>
